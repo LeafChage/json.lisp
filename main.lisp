@@ -4,7 +4,8 @@
         :alexandria
         :pigeon)
   (:import-from :ppp)
-  (:import-from :uiop #:read-file-string))
+  (:import-from :uiop #:read-file-string)
+  (:export #:json))
 (in-package :json)
 
 (defun p-true ()
@@ -121,7 +122,8 @@
                 (ppp:whitespaces))
               (ppp:token "}"))))
 
-;; (let ((text (uiop:read-file-string "./sample.json")))
-  ;; (car (result:unwrap (ppp:parse (p-object) text))))
+(defun json (text)
+  (car (result:unwrap (ppp:parse (p-object) text))))
+
 
 
